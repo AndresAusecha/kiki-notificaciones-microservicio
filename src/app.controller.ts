@@ -5,10 +5,12 @@ import {
   Ctx,
   Payload
 } from '@nestjs/microservices';
-import { AppService } from './app.service';@Controller()
+import { AppService } from './app.service';
 
+@Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}  @MessagePattern('rabbit-mq-producer')
+  constructor(private readonly appService: AppService) {}  
+  @MessagePattern('EnvioCreado')
   public async execute(
     @Payload() data: any,
     @Ctx() context: RmqContext

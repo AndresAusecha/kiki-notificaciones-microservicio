@@ -6,7 +6,7 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: [
-        'http://localhost:15672',
+        'amqp://guest:guest@rabbitmq:5672',
       ],
       queue: 'rabbit-mq-kiki',
       // false = manual acknowledgement; true = automatic acknowledgment
@@ -15,7 +15,7 @@ async function bootstrap() {
       prefetchCount: 1
     }
   });
-  await app.listen();
+  await app.listen()
 }
 
 bootstrap();
